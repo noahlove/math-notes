@@ -12,6 +12,14 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-katex": "^2.0.2",
+    "react-markdown": "^6.0.1",
+    "rehype-katex": "^5.0.0",
+    "remark-math": "^4.0.0",
+    "remark-rehype": "^8.1.0",
     "smooth-doc": "^5.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-plugin-react": "^7.23.2"
   }
 }
