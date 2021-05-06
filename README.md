@@ -1,2 +1,2 @@
 # math-notes
-Should work with katex now
+This is an implementation of smooth-docs with latex functionality. 
