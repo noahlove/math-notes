@@ -10,31 +10,124 @@ import Katex from "../../../components/Katex";
 
 This is a place to review all the critical components of linear algebra.
 
+## Quadratic Forms
 <Katex>{`
-Given a **formula** below
+A quadratic form in $$ n $$ variables is a function $$ Q $$ of the form:
 $$
-s = ut + \\frac{1}{2}at^{2}
+Q(x_1, \\dots , x_n) = \\sum_{i = 1}^n \\sum_{j = 1}^n a_{ij}x_i x_j
 $$
-Calculate the value of $s$ when $u = 10 \\frac{m}{s}$ and $a = 2\\frac{m}{s^{2}}$ at $t = 1s$
+where $a_{ij}$ are constants. Suppose we put $\\mathbf{x} = (x_1, x_2, \\dots , x_n)'$ and $\\mathbf{A} = (a_{ij})$. Then it follows: 
+$$
+Q(x_1, \\dots , x_n)
+$$
+In other words, a quadratic form is a homogenous degree 2 polynomial in $n$ variables. Homogenous meaning that all are of the same degree, so you can scale the variabels and the entire function scales similarly. In 2 varaibles we  have:
+$$
+Q(x_1, x_{21}) = SOMETHING HERE
+$$ 
 `}</Katex>
 
-Testing
+### Definiteness of a quadratic form
 
-OUTSIDE BEFORE!
+<Katex>{`
+A quadratic form $Q(\\mathbf{x}) = \\mathbf{x'Ax}$ as well as its associated symmetric matrix $$ \\mathbf{A} $$  are said to be:
+`}</Katex>
+
+- positive semi-definite
+- negative semi-definite
+- positive definite
+- negative definite
+- indefinite
+
+Theorem:
+
+<Katex>{`
+1) Positive semidefinite $ \\iff a_{11}, a_{22} \\geq 0 $ and $a_{11, a_{22} \\geq a_{12}^2}$ (with notation of matrix $ \\mathbf{A} $)
+2) Negative semidefinite $\\iff$
+3) Positive definite $\\iff$
+4) Negative definite $\\iff$
+There is a relationship between them as well. Insert explanation. Insert examples here as well. 
+`}</Katex>
+
+#### General Case:
+
 <Katex>{`
 $$
-a^2 + b^2 = c^2
+Q(x_1, \\dots , x_n) = \\sum_{i= 1}^n \\sum_{j = 1}^n a_{ij}x_i x_j = t \\begin{pmatrix} 
+x_1 \\newline
+\\vdots \\newline
+x_3
+\\end{pmatrix} (a_{ij})_{n \\times n} \\begin{pmatrix}
+x_1 \\newline
+\\vdots  \\newline
+x_n 
+\\end{pmatrix}
 $$
-test
-Testing again
-$$ 
-a^2 
-$$
-inbetween
-$$ 
-a^2 + b^2 = z^2\\ a^2 + b^2 = y^2 
-$$
-ONE LINE
-$$ a^2 + b^2 = z^2\\ a^2 + b^2 = y^2 $$
+Note above: $$ (a_{ij} = a_{ji}) $$
+The form itself, $ Q $, can be rewritten to make the matrix  $ A $ representing it symmetric. How is this not working. Wow. Now?
+Principal minor of order $k$: minor of order $k$ such taht if the $i$-th row is picked, the so is the $i$-th column (denoted by $\\Delta_k$)
 `}</Katex>
-OUTSIDE AFTER
+
+Leading Principal Minor!
+
+<Katex>{`
+If the symmetric matrix $$A = (a_{ij})_{n \\times n} $$ represents the quadratic form $$ Q(x) = x^t A x $$, then $Q$ is:
+1) **Positive definite** (values always positive with non zero axes) $ \\iff D_k > 0 \\quad  \\forall 1 \\leq k \\leq n $
+2) **Positive semidefinite** $ \\iff \\Delta_k \\geq 0 \\quad \\forall k, \\forall $ principal minors of order $k$. 
+3) **Negative definite:** $ \\iff (-1)^k D_k > 0 \\quad \\forall 1 \\leq k \\leq n $
+4) **Negative semidefinite:** $ \\iff (-1)^k \\Delta_k \\geq 0 \\quad \\forall \\, k $ and for all principal minors of order $k$
+`}</Katex>
+
+Example:
+<Katex>{`
+$$ 3x_1^2 +6x_1 x_3 + x_2^2 - 4x_2 x_3 + 8x_3^2$$
+This translates into:
+$$
+A = \\begin{pmatrix}
+3 & 0 & 3 \\newline
+0 & 1 & -2 \\newline
+3 & -2 & 8
+\\end{pmatrix}
+$$
+So what are all the leading principal minors. We have three: just the top left entry, 3, the top 2 by 2 matrix $$ \\begin{pmatrix} 3 & 0 \\newline 0 & 1 \\end{pmatrix} $$, and the entire matrix. 
+The determinent for all 3 of these are 3, so the result is positive definite. 
+`}</Katex>
+
+Second example:
+<Katex>{`
+$$
+-x_1^2 + 6x_1x_2 - 9 x_2^2 - 2x_3^2 
+$$
+Which translates into:
+$$ 
+\\begin{pmatrix}
+-1 & 3 & 0 \\newline
+3 & -9 & 0 \\newline
+0 & 0 & -2
+\\end{pmatrix}
+$$
+This in a sense is a more trivial case as the original case is a square. You can translate it into: $$ - (x_1  + 3x_2)^2 -2x_3^2 $$ which is obviously negative semidefinite. 
+`}</Katex>
+
+#### Eigenvalues approach to determining definiteness. 
+Theorem:
+
+<Katex>{`
+Let $Q = \\mathbf{x'Ax}$ be a quadratic form where A is the symmetric matrix and $\\lambda_1,\\dots, \\lambda_n $ are the (real because it is symmetric) eigenvalues of $\\mathbf{A}$, then: $Q$ is:
+1) Positive definite $\\iff \\lambda_i > 0 \\quad \\forall i $
+2) Positive semidefinite $\\iff \\lambda_i \\geq 0$
+3) Negative definite $\\iff \\lambda_i < 0$
+4) Negative semidefinite $\\iff \\lambda_i \\leq 0$
+5) **Indefinite** $\\iff \\mathbf{A}$ eigenvalues with opposite signs 
+`}</Katex>
+
+Example goes here.
+
+Example 4. 
+
+
+
+Before adding file Still working? 
+
+<Katex>{`
+Example
+`}</Katex>

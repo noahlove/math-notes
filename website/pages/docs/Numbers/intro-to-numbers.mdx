@@ -4,4 +4,512 @@ section: Real and Complex Number Systems
 order: 1
 ---
 
-# This is a test
+import Katex from "../../../components/Katex";
+
+
+# Not really sure. Lot's of random stuff
+
+## Equivalence Relations
+
+If you have a quotiant by equivalence relation, it is always possible to make a function that goes backward! 
+
+If $\\pi$ is the original function, then we can name $\\sigma$ as the reverse.
+
+<Katex>{`
+$$\\sigma ([n])$$ = A choice of element in $[n]$
+`}</Katex>
+Let's do in a sense the opposite:
+<Katex>{`
+$$ \\pi (\\sigma ([n])) = [n] \\quad \\pi \\circ \\sigma = ID$$
+`}</Katex>
+
+## Order Relation
+There is a partial order and an order. 
+
+We have a set X, which we can dentation with a less than or equal sign. It is a partial order if and only if it satifies a variety of conditions:
+1) For every a in X, a in less than or equal to a.(Reflexive) 
+2) For all a,b, and c (three elements) in X, and a is less than or equal to b and b is less than or equal to c, then a is less than or equal to c. This is transitivity. 
+3) Instead of being symmetric: for all a and b in x, if a is less than or equal to b and b is less than or equal to a, then a equals b (Antisymmetric). 
+
+So why is this partial and not just an order relation?
+Previously, we had a powerset, which is a set of all sets A that are subsets of X. 
+
+<Katex>{`
+$$ P(X) = {A; A \\sub X}$$
+and
+$$ A \\leq B \\iff A \\sub B $$
+`}</Katex>
+It is a partial order, but why? Let's think of a scenario using a venn diagram. 
+
+If there is some overlap, can we say 
+<Katex>{`
+$$ A \\leq B \\quad or \\quad B \\leq A $$?
+`}</Katex>
+Well it is really hard to compare. There is intersection and separate parts but we can't order them. They can't be compared. This is partial. 
+
+In order to have total order, we need an additional condition!
+
+<Katex>{`
+$$ (X, \\leq)$$ if $$X$$ is a partial order we call it an order relation $$\\iff$ it satisifes:
+$$
+\\forall a , b \\in X, \\quad a \\leq b \\and b \\leq a 
+$$ 
+`}</Katex>
+
+## Bounds:
+Definition: We have a set with an order relation. Not partial. Inside the set, we have a subset. A is a subset of X. We also have b, which is an element in X. It is an upper bound of A if and only if for every a in A, a is less than or equal to b. 
+
+<Katex>{`
+$$(X, \\leq )$$ order. $$A \\subset X, \\quad b \\in X$$ FINISH
+`}</Katex>
+
+Definition for maximum: 
+Similar starting conditions. The difference is that the maximum is an element in the set. The existance of a maximum is a slippery situation. It is common to have an upper bound or several upper bounds but no maximum. This is because the maximum must be in the set. 
+
+Definition of supremum. :
+Again same order. a is a suprememum of A iff and only if a is an upper bound and is the least upper bound. That means if I pick any numer less than a, it is not an upper bound of a. 
+
+It is written using this notation: 
+<Katex>{`
+$$ \\alpha = \\sup A$$
+`}</Katex>
+
+These can all be flipped/reversed to get the bottom conditions: minimum, lower bound and infimum. 
+
+Example:
+We have a function, y = x from 0 to 1 with a whole at 1. 
+
+<Katex>{`
+We have a function $$y = x $$ in the reals. Do we have an upper bound? Yes! Pretty much anything greater than one. Do we have a maximum? No, it would be 1 but we don't have a 1. Does it have a sumpremum? Yes, it is 1.
+$$
+\\sup \\{f([0,1]) \\} = 1
+$$
+$$
+\\min \\{ f([0,1]) \\} = 0  
+$$
+$$
+\\inf \\{f([0,1]) \\} = 0
+$$
+`}</Katex>
+
+Let's do a new function as well:
+<Katex>{`
+$$
+f: \\mathbb{R} \\rightarrow \\mathbb{R} \\newline 
+x \\rightarrow \\arctan x
+$$
+There is no maximum or minimum but there is supremum and infimum, $$\\pi / 2$$ and $$ - \\pi / 2$$ repsectively. 
+`}</Katex>
+
+#### Well Ordered
+We will only use this for 1 example in this class but it is a very important one. 
+
+We have X with an ordered relation, i.e.
+<Katex>{`
+$$(X, \\leq)$$ ordered
+To be well ordered, then you should be able to choose any subset and that subset has a minimum. 
+X is well ordered $$\\iff \\quad \\forall A \\subset X, \\quad A  \\neq \\emptyset \\Rightarrow A $$ has a minimum. 
+`}</Katex>
+<Katex>{`
+a^2 + b^2
+`}</Katex>
+
+#### Natural Numbers
+What is the definition of the nautral numbers? Well this was historically a very hard problem and only was defined about 100 years ago. However, the definition is here:
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+- N is a set
+- 0 is a number in n
+- S is a function mapping N to N
+It has the following qualities:
+
+1) S is injective (Successor of a number)
+2) There is no number in N such that the successor of n is 0. Therefore, 0 is not in the image of n. That is the only number not in the image of n. 
+3) If K is a subset of N and it satifies:
+
+-) o is in K 
+-) if n is in k (in the set), and the successor is also in the set:
+Then K = N. It is the set. (Induction)
+
+Induction works because it is built into the natural numbers. It is part of the definition. It is in a sense a weird formulation but very helpful. 
+
+TANGENT: WHAT DOES S(N) meaning
+
+#### Binary Operation
+This is a function that goes from two copies of the set into the set itself. For example:
+<Katex>{`
+$$ \\mathbb{N} \\times \\mathbb{N} \\rightarrow \\mathbb{N}$$
+$$ n, m \\rightarrow n + m $$
+`}</Katex>
+We can make this recursively. Remember that 
+<Katex>{`
+$$S(n) = n + 1 $$
+`}</Katex>
+The end point of the  recursion is 
+<Katex>{`
+$$n + 0 = n$$
+After that, it should look
+$$n + S(m) = S(n + m)$$
+`}</Katex>
+
+We can test this on really small values, for example, 1 + 2. 
+<Katex>{`
+$$1 + 2 = 1 + S(1) = S(1 + 1) = S(1 + S(0)) = S(S(1 + 0))$$
+Until this point, we were using the second property: $$S(m) = S(n + m)$$. Now we can use the first property to finish:
+$$S(S(1 + 0)) = S(S(1)) = S(2) = 3$$
+Therefore, the operation is well definied. However, the really hard part is actually created the function that maps $$\\mathbb{N} \\rightarrow \\mathbb{N}$$
+`}</Katex>
+
+Proposition: 
+
+<Katex>{`
+$$ (\\mathbb{N}, + )$$ is associative. 
+$$n + (m + k) = (n + m ) + k$$. We have three numbers, but typically induction is for only 1 number. So pick two, say $$n,m \\in \\mathbb{N}$$ and fix them. Then we pick a set:
+$$
+K = \\{ K \\in \\mathbb{N} \\st n + (m + k) = (n + m) + k \\}
+$$
+We want to prove $$K = \\mathbb{N}$$. We need to show two things: Prove that $$0 \\in K$$. That should be relatively easy: 
+$$
+n + (m + 0) = n + m = (n + k)??? + 0 \\Rightarrow 0 \\in k
+$$
+Second: we want to prove ???????????? So we assume that $$k \\in K$$, or $$n + (m + k) = (n + m) + k$$
+we need to prove that $$S(k) \\in K$$. 
+$$
+n + (m + S(k)) = n + S(m + k) = S(n + (m + k))
+$$
+Using the condition above about changing the parathensis in addition, we can move things around:
+$$
+S(n + (m + k))  = S((n + m) + k) = (n + m) + S(k) \\Rightarrow S(k) \\in K
+$$
+Then, by induction we conclude $$K = \\mathbb{N}$$. 
+`}</Katex>
+
+The natural numbers is the simplest algebraic structure we have. 
+
+1) 0 is the neutral element, meaning when you do the operation (add) with this element, it does nothing. 
+2) It is associative, as shown in the proof above. 
+3) It is commutative, meaning you can change the order of addition. 
+
+The algabraic structure that has only properties is a monoid. The natural numbers are in a sense a commutative monoid. 
+
+Based on this, we can actually define multiplication. We can again define it recursively:
+<Katex>{`
+$$
+\\mathbb{N} \\times \\mathbb{N} \\rightarrow \\mathbb{N}   
+$$
+$$
+n, m \\rightarrow n \\cdot m
+$$
+From here, recursively:
+$$
+n \\cdot 0 = 0
+$$
+$$
+n \\cdot S(m) = n \\cdot m + n
+$$
+`}</Katex>
+With respect to the algabraic structure:
+<Katex>{`
+$$ \\mathbb{N}, \\dot $$
+`}</Katex>
+1) 1 is the neutral element
+2) It is associative:
+<Katex>{`
+$$ n \\cdot (m \\cdot k) = (n \\cdot m ) \\cdot k $$
+`}</Katex>
+3) It is commutative:
+<Katex>{`
+$$n \\cdot m = m \\cdot n$$
+`}</Katex>
+
+Order relation of the natural numbers:
+We can do this recursively by setting: 
+<Katex>{`
+$$n < S(n)  $$
+`}</Katex>
+or directly by:
+
+Definition:
+<Katex>{`
+$$ n \\leq m \\iff \\exists k \\in \\mathbb{N} \\mid n + k = m $$
+`}</Katex>
+
+
+
+Remark!! Important thing for homework
+<Katex>{`
+1) $$ 0 \\leq n \\quad \\forall n \\in \\mathbb{N}$$
+2) $$ \\mathbb{N}$$ does not have upper bounds:
+`}</Katex>
+
+Let's prove it. Let's pick a subset, A of N which is not the empty set. Let's prove that A has a minimum. 
+
+Again what does it mean to have a minimum?
+<Katex>{`
+$$
+\\exists \\tilde{a} \\in A \\mid \\forall a \\in A, \\quad \\tilde{a} \\leq a
+$$
+$$
+B = \\{ b \\in \\mathbb{N}  \\mid b \\leq A \\}
+$$
+We are using the notation EXPLAIN SOMETHING ABOUT B Subset 
+`}</Katex>
+
+What is in B? Well 0 is there. It is also the minimum of the natural numbers. Intuitively: we are in b, and there is a 0. Let's just start increasing. Eventually we should hit this "border" that is the top of b and the minimum of A. Hi 
+
+REPLAC E ALOT OF STUFF
+
+We know that b tilde is a succcessor, but b is not. Then: 
+<Katex>{`
+$$ \\tilde{b} \\leq \\tilde{a} < S( \\tilde{b})$$
+What can we say about $$\\tilde{a}$$. Well you cannot have a natural number inbetween two other natural numbers! Therefore:
+$$
+\\tilde{b} = \\tilde{a} \\Rightarrow \\tilde{a} \\in B
+$$
+Therefore:
+$$\\tilde{a}$$ is a lwoer bound; $$\\tilde{a} \\in A \\Rightarrow \\tilde{a} = \\min A$$ 
+`}</Katex>
+
+We are currently using an axiomatic definition of the natural numbers. SOMETHING SOMETHING. Is it obvious that the natural numbers are unique? Could we have more than one set? Is that obvious? Or could we have more than 1?
+
+Let's try a trivial example: What if we make a new set M. 
+<Katex>{`
+$$\\mathbb{M} = \\{ 2,3,4,5, \\dots \\}$$ where $$T(n) = n + 1$$ . In a sense, think of 0 as completely arbitrary. It seems that this should satisfy? For all pracitcal purposes, this set satifies the axioms. Therefore, the natural numbers are not unique. In math, you only have uniqueness "in some sense". 
+`}</Katex>
+
+Suppose that you have two triples:
+<Katex>{`
+$$(\\mathbb{N}, 0, S)$$ and $$(\\mathbb{M}, \\tilde{0}, T)$$ and both of these satisfy the definition of the natural numbers. Then, there exists a function mapping N to M such that, that function is bijective. That is not necessarily enough. There is a unique bijection from N to M such that the below diagram commutes. This means, you can start at N and go to M , or go to N , and either way we can go to M. In math notation:
+$$T(f(n)) = f(S(n)) \\quad \\forall n \\in \\mathbb{N}$$ 
+DIAGRAM THINGY
+`}</Katex>
+
+#### Integers
+
+Now that we have the natural numbers, how do we make the integers? We need to encode a "sign" in the front to see if it is positive or negative. To do this, we take two copies of the natural numbers:
+<Katex>{`
+$$ \\mathbb{N} \\times \\mathbb{N} \\Rightarrow (n,m) $$. We can pretend that: $$(n,0) = + n$$ and $$(0,m) = -m$$ and $$(n,m) = n-m$$. 
+We can't do this however! This would be a problem. We have a ton of things mapped to 0 for example:
+$$(0,0) = 0 \\quad (1,1) = 0 \\quad \\dots \\quad (k,k) = 0$$ Similarly: $$(k + 1, k) = 1 \\dots$$. To fix this, we need an equivalence relation that puts all of the same number into the same equivalence class. Using the quotient, we can collapse multiple representations of the same number into only a single instance. So our equivalence should be?
+$$(n, m) \\sim (p,q) \\iff what?$$
+You can think about $$(n,m) as n-m$$, although we don't yet have subtraction defined yet. Similarly: $$(p,q)$$ would sort of be $$p-q$$. Therefore, the equivalence would be:
+$$
+(n, m) \\sim (p,q) \\iff n + q = p + m
+$$
+We can check the equivalence class for example:
+$$\\mathbb{Z} \\mathbb{N } \\times \\mathbb{N} / \\sim $$
+For example:
+$$0 = [(0,0)] = \\{(k,k); k \\in \\mathbb{N}}
+`}</Katex>
+Now we need to define an operation on the quotient. To do this, we would start with an operation on the set before the quotient. For example we cna have the binary operation: 
+<Katex>{`
+$$ 
+\\mathbb{N}^2 \\times \\mathbb{N}^2 \\rightarrow \\mathbb{N}^2
+$$
+$$
+(n,m), (p,q) \\rightarrow (n + p, m + q)
+$$
+`}</Katex>
+
+From earlier, we used: 
+INSERT THE PI FUNCTION
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+The question really is can we complete the same diagram that we had used earlier. Can we map to an equivalence class and then to the bottom corner of our diagram?
+
+Is pi invertible? That is to ask, is it injective? Well no. WHY?????? But we can do something different. We can use sigma which makes a choise within the equivalence class. CONFUSION
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+There is however a problem. If the representation in the equivalence class is non-unique, then it becomes more difficult. Say we change sigma, does the answer change? Do we go to the same number. 
+
+For example, lets say we have two other pairs, using prime notation. They are equal to the original, same equivalence class. They aren't the same numbers, just equivalent. In each case, we add the respective numbers. If the classes are different, we have a problem. If they are the same, it is fine. This is something we can easily check. If they are the same equivalence class:
+
+<Katex>{`
+$$n + m' = m + n'$$ and $$p + q' = q + p'$$
+`}</Katex>
+
+To check if the sums are the same equivalence class we need to check:
+<Katex>{`
+$$ n + p + m' + q' = m + q + n' + p' $$
+`}</Katex>
+
+So are they the same equivalence class? Well yes ! You can add the expressions above to get the equivalence class check directly above. So it is true. 
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
+<Katex>{`
+$$(N, 0, S)$$
+`}</Katex>
+
