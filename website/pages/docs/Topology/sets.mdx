@@ -4,10 +4,23 @@ section: Basic Topology
 order: 2
 ---
 
+import Katex from "../../../components/Katex";
+
 # Does this work?
 
-Testing 123---
-
-hi
-
-This is not rendering...
+<Katex>{`
+$$ 
+\\begin{align}
+   a&=b+c \\newline
+   d+e&=f
+\\end{align}
+$$
+$$ 
+\\begin{CD}
+   A @>a>> B \\newline
+@VbVV @AAcA \\newline
+   C @= D
+\\end{CD}
+$$
+$$  \\color{blue} F=ma $$
+`}</Katex>

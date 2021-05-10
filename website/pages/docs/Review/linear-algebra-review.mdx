@@ -8,6 +8,109 @@ import Katex from "../../../components/Katex";
 
 # Review of Linear Algebra
 
+Definition:
+
+## Matrices
+
+<Katex>{`
+$$
+\\begin{align}
+   (AB)C &= A(BC) \\newline
+   A(B+ C) &= AB + AC \\quad \\text{left distributive law} \\newline
+   (A + B)C &= AC + BC \\quad \\text{right distributive law} \\newline 
+   AB \\ne BA 
+\\end{align}
+$$
+`}</Katex>
+
+
+
+
+### Property of Matrices
+
+
+
+The rank of A is the maximum number of linearly independent column vectors of A. The rank of the zero matrix is 0. 
+
+Example:
+<Katex>{`
+$$
+A = (A_ij)_{n \\times n} \\Rightarrow r(A) \\leq n \\quad \\text{and} \\quad r(A) = n 
+$$
+The determinant must therefore be non-zero. The columns are all linearly independent, if and only if, there is a non-zero determinant and therefore it must be a square matrix. 
+`}</Katex>
+
+### Minor of order k:
+Determinant of submatrix of A obtained by deleting all but k rows and k columns. 
+
+Minor of order 1 is just an individual element. 
+
+For example:
+
+<Katex>{`
+A quadratic form $$ Q(\\mathbf{x}) = \\mathbf{x'Ax} $$ as well as its associated symmetric matrix $$ \\mathbf{A} $$  are said to be:
+`}</Katex>
+
+<Katex>{`
+$$ 
+\\begin{pmatrix}
+1 & 2 & 2 & 1 \\newline
+0 & 2 & 4 & 2 \\newline
+0 & 2 & 2 & 1
+\\end{pmatrix}
+$$
+`}</Katex>
+
+In the above, we have
+- 4 minors of order 3
+- 18 minors of order 2
+- 12 minors of order 1 (individual elements)
+
+<Katex>{`
+An $$m \\times n$$ matrix has $$ {f \\choose k} {m \\choose k}  $$ minors of order k. For example, the above has  THIS IS MISSING STUFF 
+$$
+{n \\choose k} {n \\choose k}
+$$
+`}</Katex>
+
+
+
+<Katex>{`
+In general: 
+$$  = \\frac{m!}{k! (n-k)!} \\cdot \\frac{n!}{k! (n-k)!}$$ This is missing stuff
+`}</Katex>
+
+
+
+
+
+<Katex>{`
+Theorem: The rank $$r(\\mathbf{A})$$ of matrix **A** is equal to the order of the largest minor of A that is non-zero. 
+`}</Katex>
+
+
+
+Any system of linear equations can be written as a vector equation of the form:
+
+
+<Katex>{`
+$$
+x_1 a_1 + x_2 a_2 + x_3 a_3 ... = b
+$$
+`}</Katex>
+
+
+In the above equation:
+
+
+Theorem 1.4.2: 
+In essence it doesn't matter whether you work with rows or columns. The result will be the same. 
+
+
+
+
+
+
 This is a place to review all the critical components of linear algebra.
 
 ## Quadratic Forms
