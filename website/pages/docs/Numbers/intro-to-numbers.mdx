@@ -343,173 +343,245 @@ $$ n + p + m' + q' = m + q + n' + p' $$
 
 So are they the same equivalence class? Well yes ! You can add the expressions above to get the equivalence class check directly above. So it is true. 
 
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
+### Multiplication in Z 
 
+We start with 2 copies of n. That means we are doing  
 <Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
+$$\\mathbb{N}^2 \\cdot \\mathbb{N}^2 \\rightarrow \\mathbb{N}^2$$
+This we should think of as 
+$$
+(m,n); (p,q) \\rightarrow (mp + nq , mq + np)
+$$
+We want it to be distribution and association and all of the quantities we come to expect. We also need to make sure negative times a negative results in a postive. Then you should check that it works with the equivalence, meaning that if we have $$(m,n) \\sim (m', n') $$ and we have $$(p,q)  \\sim (p',q')$$, well then is it true that: $$(mp + nq, mq + np) \\sim (m'p' + n'q')$$. If it is true, then it defines an operation in $$\\mathbb{Z} = \\mathbb{N}^2 / \\sim $$
 `}</Katex>
 
 
 <Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
+$$(\\mathbb{Z}, + )$$
+1. We still have a neutral element
+2. It is associative 
+3. It is commutative 
+4. $$\\forall m \\in \\mathbb{Z}, \\exists n \\in \\mathbb{Z} \\mid m + n = n + m = 0 $$
+These four properties describe SOMETHING SOMETHING 
 `}</Katex>
 
 
 <Katex>{`
-$$(N, 0, S)$$
+$$ (\\mathbb{Z}, \\circ  )$$
+1. neutral
+2. Associative 
+3. Commutative 
+4. Distributive i.e. $$m \\cdot (n + p) = m \\cdot n + m \\cdot p $$
+This is a little bit less than a field (we don't have a inverse for SOMETHING). Thing is a commutative Rinb??
 `}</Katex>
 
 <Katex>{`
-$$(N, 0, S)$$
+$$(\\mathbb{Z}, + , \\circ)$$
+To build the rationals, not only do you want to have a sign, but you also want to have a numerator and denominator. You can do this using 1 integer for numerator and 1 for the denominator. 
+$$(m,n) \\in \\mathbb{Z} \\times \\mathbb{N}, \\{0 \\}$$
+However, the representation is not unique. The fix however is the same as before; we make an equivalence such that when two pairs represent the same numbers, we show that. For this case, the equivalence would be : 
+$$(m,n) \\sim (p,q) \\iff mq = np $$
+SOMETHING FORMULA THING FOR RATIONALS
+`}</Katex>
+
+
+
+Operations
+<Katex>{`
+$$(m,n) \\cdot (p,q) = (mp, nq)$$
+and this is well defined because multiplication is defined. However, this is not as easy for addition:
+$$(m,n) + (p,q) = (mq + np, nq)$$ 
+and you would need to check compatibility with the equivalence, meaning see what happens if you replace $$(m,n)$$ and $$(p,q)$$ with something equivalent and see if the sum is equivalent. 
+`}</Katex>
+
+Now that we have fractions, we can do more. 
+
+<Katex>{`
+1. $$(\\mathbb{Q}, +)$$ This is an Abelian group. The problem is there is no recipricol of 0. 
+2. $$(\\mathbb{Q}, \\{ 0 \\}, \\circ )$$ is also an Abelian group. 
+3. Distributive: $$m \\cdot (n + p) = m \\cdot n + m \\cdot p $$
+This is known as a commutative field although commutative is usually inferred. This is the best algabraic group in a sense. INSERT EXPLANATION.. 
+`}</Katex>
+
+This means we can keep the properties while throwing out the rationals. 
+
+<Katex>{`
+We have K, which is a set with 2 binary operations, $$+, \\circ$$
+$$(K, + , \\circ )$$ is a field $$\\iff$$
+1. $$(K, +)$$ is an abelian group 
+2. $$(K, \\{0 \\}, \\circ )$$ is an abelian group 
+3. And it has a distributive property 
+`}</Katex>
+
+ ### Properties 
+
+ <Katex>{`
+The below properties assume $$x,y,z \\in K$$
+1. **Cancellation property** If $$x + y = x + z \\Rightarrow y = z $$
+2. **The opposite of a number is unique** If $$x + y = 0 \\Rightarrow y = -x $$. This property shows that the opposite of a number is unique. If y satisfies the same condition as $$-x$$, then it must be $$-x$$. There is only one opposite of a number in a field. 
+3. **Opposite of the opposite is the number itself** $$-(-x) = x$$ 
+`}</Katex>
+
+These properties  can be repeated for multiplication. 
+
+Show cancellation property: 
+<Katex>{`
+$$y = 0 + y$$. 0 is the neutral element so I can add it to anything. We also now know numbers have opposites, so we can replace zero with $$(-x + x)$$. We have the associative property so we can move the parentheses. Now we have 
+$$ 
+- x + (x + y)
+$$ 
+GOT LOST ADD SOME MORE STUFF. 
+`}</Katex>
+
+Show opposite is unique: 
+<Katex>{`
+$$ x + y = 0 \\Rightarrow x = y = x + (-x) \\Rightarrow y = -x$$ by the previous theorem 
+`}</Katex>
+
+Proof of opposites 
+<Katex>{`
+$$-x + x = 0 \\Rightarrow x = - (-x)  $$ using property two. 
+`}</Katex>
+
+## Order relation 
+Your field could have an order relation, but that is not particularly interesting. Instead, we want an order relation that is in a sense, compatible with the field. What does this mean?
+
+<Katex>{`
+$$(K, +, \\circ)$$ is a field and $$\\leq $$ is an order in $$K$$. $$K$$ is *an ordered field* $$\\iff$$ 
+1. $$\\forall x \\in k , \\quad y \\leq z \\Rightarrow x + y \\leq x + z $$ This means order is preserved if we add something to both sides. 
+2. If $$x \\geq 0 $$ and $$y \\geq 0 \\Rightarrow x \\cdot y \\geq 0 $$          Compatibility with multiplication. These conditions let you show anything related to inequalities. 
+`}</Katex>
+
+The zero in the above is the neutral element of the sum. !!!! INSERT IMPORTANCE OF THAT 
+
+Properties 
+<Katex>{`
+1. If $$x \\geq 0 \\Rightarrow -x \\leq 0$$. This is proven by $$x \\geq 0 \\Rightarrow x + (-x) \\geq 0 + (-x) \\Rightarrow 0 \\geq -x $$ 
+2. $$x^2 \\geq 0 \\quad \\forall x \\in K$$. This is proven by using cases. Either it is non-negative or it is negative. If $$x \\geq 0 \\Rightarrow x^2 = x \\cdot x \\geq 0$$ by property 2 above. If $$x < 0 \\Rightarrow -x > 0$$ by property 1 above. Well then: $$x^2 = (-x) \\cdot (-x) > 0 $$ by property 2. 
+3. If $$y \\leq  z $$ and $$x \\geq 0 \\Rightarrow xy \\leq  xz $$ and $$y \\leq  z$$ and $$x \\leq 0 \\Rightarrow xy \\geq  xz$$ The proof of this is just a mixture of the above. For example : $$y \\leq z \\Rightarrow 0 \\leq z - y$$ by property 1 of an ordered field. We know then $$0 \\leq (z - y ) \\cdot x$$ then using the product: $$0 \\leq xz - xy$$ and then use property 1 to add the negative to the other side :
+$$xy \\leq xz$$. This will be very similar for the other case: $$x \\leq 0  \\Rightarrow -x \\geq 0$$ From here, we can use property 2, $$0 \\leq z-y \\Rightarrow 0 \\leq (z-y) \\cdot (-x) \\Rightarrow 0 \\leq xy - xz$$ and finally add again to get $$xz \\leq xy$$
+`}</Katex>
+
+<Katex>{`
+The complex numbers create trouble with our fields however. They form a field, but not an ordered field. 
+$$(\\mathbb{C}, +, \\circ)$$. You can prove there is no order relation in $$\\mathbb{C}$$ such that it is an ordered field. You can definitely put order relations in, but it will not be an ordered field. 
+`}</Katex>
+
+## Real numbers
+Complaints about Rudin's version of creating the reals. It is neat, but not very helpful or generalizable. 
+
+Reals from the rationals is pretty cool actually, but won't be available to us for quite a while (Chapter 3 of Rudin). 
+
+**Definition** 
+
+<Katex>{`
+Ordered set: $$(X, \\leq)$$. We say that $$X$$ has the least upper bound property $$LUBP  \\iff \\, \\forall Y \\subset X$$ if $$y \\neq \\emptyset $$ and bounded from above then $$Y$$ has a least upper bound, that is to say $$(\\sup Y$$ exists). The supremum has to be in x, not necessarily in Y.  
+`}</Katex>
+
+The rationals do not have the least upper bound property! 
+Proposition: 
+
+<Katex>{`
+$$\\mathbb{Q}$$ doesn't have a LUBP. To prove this, we simply need to find an example of $$A \\subset \\mathbb{Q} \\mid A$$ is bounded from above and $$A$$ doesn't have a supremum. 
+For example, lets find a set where the LUBP would be a rational number. Because we know the reals, you can almost cheat your way through. Lets say:
+$$
+A = \\{ t \\in \\mathbb{Q}, t > 0, t^2 < 2 \\}
+$$
+If there were a supremum of the set, it would have to be : $$\\sup A = \\sqrt{2}; \\sqrt{2} \\notin \\mathbb{Q}$$. 
 `}</Katex>
 
 
 <Katex>{`
-$$(N, 0, S)$$
+Proposition: $$\\nexists t \\in \\mathbb{Q} \\mid t^2 = z$$
+Proof by contradition: Suppose that $$t = \\frac{m}{n}, \\quad m, n \\in \\mathbb{N}$$ and $$t^2 = 2$$. Assume that at last any of them is not even. 
+EXPLANATION ON THE PROPER WAY TO DO THIS . 
+$$m^2 / n^2 = 2 \\Rightarrow m^2 = 2 n^2$$. This tells you that $$m^2$$ is even. You can easily prove that if the square of a number is even, then the number itself is even! Let us do it with a contrapositive. 
+If $$m$$ is odd, $$m= 2k + 1$$ for some $$k \\in \\mathbb{N} \\Rightarrow m^2 = 4k^2 + 4k + 1$$ which is odd. 
+Now that we know that $$m^2$$ is even, then m is even and then we know $$m = 2 \\cdot p$$ where p is a natural number. 
+$$
+(2 \\cdot p)^2 = 2 \\cdot n^2 \\Rightarrow 2p^2 = n^2 \\Rightarrow n^2 \\text{is even}
+$$
+This implies that $$n$$ itself is even. However, this is a contradiction because we have both $$m$$ and $$n$$ is even however, we began with the assumption one of the two is odd. 
 `}</Katex>
 
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
+Now we have a separate proof for WHAT IS THE GREEN STAR 
 
 <Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
+$$A = \\{ t \\in \\mathbb{Q}, t > 0, t^2 < 2 \\}$$
+$$B = \\{t \\in \\mathbb{Q}, t > 0 , t^2 > 2 \\}$$. 
+Since $$t^2 = 2$$ is not possible, then B is the set of all the upper bounds of A. Now we jsut have to show, among the numbers of B, we don't have a smallest one. 
+If $$p \\in B; p^2 > 2, \\quad \\exists q \\in \\mathbb{Q} \\mid p > q, q^2 > 2$$ This is what we want to show, we can always find a smaller number. Note the proof in Rudin is confusing by using a formula that doesn't appear obvious. 
 `}</Katex>
 
 
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
 
 <Katex>{`
-$$(N, 0, S)$$
+Just make a drawing, using the imaginary $$\\sqrt{2}$$ that we don't yet have. We also plot $$p$$ further to the right and $$q$$ is somewhere there inbetween. Let's try and find q. How would we make this formula. We would end up with $$p - \\sqrt{2}$$ but of course we can't use a squareroot. Now you just have to rationalize it and round the denominator up to $$p + 2$$ instead of $$p + \\sqrt{2}$$ which we can do because it is slightly smaller than the actual gap. 
 `}</Katex>
 
 
 <Katex>{`
-$$(N, 0, S)$$
+$$q = p - \\left( \\frac{p^2 - 2}{p + 2} \\right)  = \\frac{p^2 + 2p - p^2 + 2}{p + 2} = \\frac{2p + 2}{p + 2}$$
+We need to prove that $$q^2 > 2$$
+$$q^2 - 2 = \\left(\\frac{2p + 2}{p + 2} \\right)^2 - 2 = 4p^2 + 8p + 4 - 2(p^2 + 4p + 4) / (p+2)^2 = 2p^2 - 4 / (p + 2)^2$$
+You can factor out and find:
+$$\\frac{2(p^2 - 2)}{(p + 2)^2} > 0 $$ because $$p^2 > 2???$$ which means that there is no least upper bound. 
 `}</Katex>
+
+
+We will now introduce the reals definitionally/theorem wise. 
+**Theorem** 
 
 <Katex>{`
-$$(N, 0, S)$$
+$$( \\mathbb{R}, + , \\circ , \\leq )$$ is an ordered field that has the least upper bound property and its a field extension of the rationals. So the rationals are an ordered field that is an field extnesion of $$\mathbb{Q}$$ with the least upper bound property. 
 `}</Katex>
 
+#### Field extension: 
+We have two fields ???? LOOK UP ALTERNATIVE PLUS AND DOT . We say that $$L$$ is a field extension of K $$\\iff$$ there is an injective function $$j: K \\rightarrow L $$ which is also a homomorphism. 
+
+Homomorpism is a SOMETHING that respects the algabraic structure. Right now, you have two binary operations in each. INSERT THE PRETTY PICTURE. This diagram must commute for a homomorphism. INSERT LOTS OF STUFF. 
+
+We call our current definition of $$\\mathbb{R}$$ a theorem because we need to prove it exists and is unique. Do these conditions define a unique object? This definition does not actually define the reals in a unique sense. It is unique enough for us, but not completely unique. We cannot talk about the uniqueness of the reals however with knowing completeness. Instead, at this moment in time, we take for granted that it exists. 
+
+As a consequence of the LUBP, we want to show that the nth root is doable and uniquely defined. To get there, we need a few more theorems. 
+
+** Thm: Archimedean property:
 
 <Katex>{`
-$$(N, 0, S)$$
+$$\\forall x, y \\in \\mathbb{R} $$ if $$x > 0, \\quad \\exists n \\in \\mathbb{N} \\mid nx > y$$ 
+This says you can make a SOMETHING really large by multiplying SOMETHING SOMETHING SOMETHING. 
 `}</Katex>
+
+Proof: 
 
 <Katex>{`
-$$(N, 0, S)$$
+Fix $$x, y \\in \\mathbb{R} $$ and $$x > 0$$. By contradition, we can show the negation of the sentence above: 
+$$ \\forall n \\in \\mathbb{N}, n x \\leq y$$. We start by making the set of every nx, where n is a natural: 
+$$A = \\{ nx ; n \\in \\mathbb{N} \\}$$ which is bounded from above. We mentioned that the reals have the LUBP, and we apply it which implies: $$ \\exists \\alpha \\in \\mathbb{R}, \\alpha = \\sup A$$. From this: $$\\alpha \\geq nx \\quad \\forall n \\in \\mathbb{N}$$. We know x is  a positive quantity. Then if we subtract it from alpha, alpha must get smaller. Therefore, we know $$\\alpha - x$$ is not an upper bound! 
+From this, we know that $$\\exists \\tilde{n} \\in \\mathbb{N} \\mid \\tilde{n} \\cdot x > \\alpha - x \\Rightarrow (\\tilde + 1) \\cdot x > \\alpha$$ but $$\tilde{n} + 1 \\in \\mathbb{N}$$. But $$(\\tilde + 1) \\cdot x \\in A \\Rightarrow \\alpha$ is not the upper bound which is a **contradiction**. 
 `}</Katex>
 
+The rational numbers are more dense then the reals. In practice, this means that if you pick any two real numbers there will be a rational that fits between them. This will get more obvious when we introduce topology. 
+
+**THM: 
 
 <Katex>{`
-$$(N, 0, S)$$
+$$\\forall x, y , \\in \\mathbb{R} $$ if $$x < y$$. Then: $$\\exists q \\in \\mathbb{Q} \\mid x < q < y$$.
 `}</Katex>
+This is just a clever use of the archimedean principle. 
 
+PROOF
 <Katex>{`
-$$(N, 0, S)$$
+For now let's assume that $$0< x < y$$. If we pick two real numbers, its not necessary that a natural number is between them. However, if the distance between $$X$$ and $$Y$$ is at least 1, then we know we can find a natural number that goes between them. Using this, we can actually stretch the gap.
+$$y - x > 0 \\Rightarrow \\exists n \\in \\mathbb{N} \\mid  n \\cdot (y - x) > 1$$ which is proven by the archimedean property. Instead of x and y, we can use nx and ny. Then we should be able to find a natural number between the two of them. 
+That is to say, there is a natural number now between nx and ny. But how do we find it? To do so lets make a new set:
+$$
+B = \\{ m \\in \\mathbb{N} \\mid m > nx \\}
+$$ 
+How do you show b is not empty?
+$$B \\neq \\emptyset $$ because $$m \\cdot 1 > nx$$ by the archimedean property again. B is not just a subset of the reals, but instead a subset of the natural numbers. Can I say with certainty that B has a minimum ?  Yes B has a minimum because a subset of the naturals has a minimum because $$\\mathbb{N}$$ is well ordered. Let's say that $$\\tilde{m}$$ is the minimum of set B. Then: $$\\tilde{m} > nx$$ and $$\tilde{m} -1$$ is not in B, then $$\\tilde{m} - 1 \\leq nx \\Rightarrow \\tilde{m} \\leq nx + 1 ; ny - nx > 1$$. From this: $$nx + 1 < ny \\Rightarrow nx < \\tilde{m} \\leq nx + 1 < ny $$ This gives our conclusion: 
+$$
+x < \\tilde{m} / n < y
+$$
+What happens if we have a negative? For example, if x is positive and y is negative, well then pick the neutral, 0. If both are negative, then use $$-x$$ and $$-y$$ instead and swap the sign at the end (opposite of that number). 
 `}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
-<Katex>{`
-$$(N, 0, S)$$
-`}</Katex>
-
