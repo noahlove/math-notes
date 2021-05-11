@@ -1,0 +1,201 @@
+---
+title: Multivariable Calculus Review 
+section: Review
+order: 2
+---
+
+import Katex from "../../../components/Katex";
+
+# Review of Multivariable Calculus 
+
+Definition:
+
+## INSERT SECTION 1 
+
+
+## Convex Sets 
+<Katex>{`
+A set $$S$$ is the plane is called **convex** if each pair of points in $$S$$ can be joined by a line segment lying entirely within S.  More mathematically: a set $$S$$ in $$\\mathbb{R}^n$$ **convex** if $$[\\mathbf{x,y}] \\subseteq S \\quad  \\forall \\quad  \\mathbf{x,y} \\in S$$ or equivalently if:
+$$
+\\lambda \\mathbf{x} + (1 - \\lambda) \\mathbf{y} \\in S \\quad \\forall \\, \\mathbf{x,y} \\in S \\, \\forall \\, \\lambda \\in [0,1]
+$$
+`}</Katex>
+
+INSERT PICTURE EXAMPLE HERE !!!!
+
+
+## Concave and Convex Functions
+
+**Definition**: The function *f* is called **concave (convex)** if it is definied on a convex set and the line segment joining any two points on the graph is never above (below) the graph.
+A more mathematical way of stating this would be: 
+<Katex>{`
+**Definition**: Let $$S \\subseteq  \\mathbb{R}^n$$ be convex, then $$f : S \\rightarrow \\mathbb{R}$$ is called concave if 
+$$
+f( \\lambda x + (1 - \\lambda)y) \\geq \\lambda f(x) + (1 - \\lambda) f(y) \\quad \\forall \\, \\mathbf{x,y} \\in S, \\forall \\lambda \\in [0,1] 
+$$
+It is convex if the reverse inequality holds. It is called **strictly** convex or concave if the respective inequality is strict, and not equal. 
+`}</Katex>
+
+The left half of the inequality is the part of the line segment, part of the real line beween x and y. The input to the left hand side is a specific point. The right hand side is the values joining the two points. The inequality tells us if we are above or below the line segment. 
+
+Let's try some examples. 
+<Katex>{`
+$$f(x) = x $$ This is both concave and convex! The function is equal. 
+`}</Katex>
+
+<Katex>{`
+What about $$f(x) = x^2$$? It is convex. No matter where you join the two points, the points inbetween are below. 
+`}</Katex>
+
+<Katex>{`
+What about $$f(x) = x^3$$. It is neither. Sometimes it is below, sometimes it is above. Instead, we need to classify it "locally". For example, what about for only positive values. Then it is strictly convex. For negative values, it is strictly concave. 
+`}</Katex>
+
+In general, this is a very hard inequality to check for just some general function. It can be very hard, you pretty much just need to graph it and look. So instead, we need certain criteria. 
+
+### Concavity/Convexity on differentiable functions 
+
+<Katex>{`
+Let $$z = f(x,y)$$ be a $$C^2$$ function defined on an open convex set $$S$$ in the plane. Then, all equalities below must hold throughout $$S$$:
+1. $$f$$ is convex $$\\iff$$ $$f_{11}'' \\geq 0$$ and $$f_{11}'' f_{22}'' - (f_{12}'')^2 \\geq 0 $$
+`}</Katex>
+
+### Hessian Matrix 
+<Katex>{`
+If $$f$$ is in $$C^2$$, we define the Hessian matrix of $$f$$ at $$x$$ as $$f''(x) = (f_{ij}''(x))_{n \\times n}$$, 
+$$
+D_r(x) = \\begin{vmatrix}
+f_{11}''(x) & \\dots & f_{1r}''(x) \\newline 
+\\vdots & \\ddots & \\vdots \\newline 
+f_{r1}''(x) & \\dots & f_{rr}''(x) 
+\\end{vmatrix}
+$$
+The leading principal minors of order r, and $$\\Delta_r$$ any principal minor of order r. 
+`}</Katex>
+
+**Theorem**: 
+
+<Katex>{`
+If $$f: S \\subseteq \\mathbb{R}^n \\rightarrow \\mathbb{R}$$ is a $$C^2$$ function on a convex set, then: 
+1. $$f$$ is strictly convex  $$ \\iff D_r (x) > 0 \\quad \\forall \\,  r, x $$
+2. $$f$$ is convex $$ \\iff \\Delta_r (x) \\geq 0 \\quad \\forall \\, r, x$$
+3. $$f$$ is strictly concave $$ \\iff (-1)^r D_r(x) > 0 \\quad \\forall \\, r, x $$
+4. $$f$$ is concave $$ \\iff (-1)^r \\Delta_r (x) \\geq 0 \\quad \\forall \\, r,x $$
+`}</Katex>
+You can get 3 and 4 from 1 and 2 by simply multiplying both sides by -1. Therefore, they follow by consequence. 
+
+Let us try a few examples:
+<Katex>{`
+f(x,y) = 2x-y-x^2 + 2xy-y^2
+We want to know the convexity/concavity. So what is our first step? We need the second partials. So all we need to do is calculate:
+$$
+\\begin{align}
+f_x = 2 - 2x + 2y  \\newline 
+f_y = -1 + 2x - 2y \\newline 
+f_{xx} = -2, f_{xy} = 2, f_{yx} = 2, f{yy} = -2
+\\end{align}
+$$
+This gives us the following Hessian:
+$$
+\\begin{vmatrix}
+-2 & 2 \\newline
+2 & -2 
+\\end{vmatrix}
+$$
+INSERT ANALYSIS OF WHAT TO CHECK? Check -2, -2 and determinant of full, which is 0
+`}</Katex>
+
+<Katex>{`
+Let us also try another example in three variables: $$f(x_1, x_2, x_3) = 100 - 2x_1^2 - x_2^2 - 3x_3 - x_1 x_2 - e^{x_1 + x_2 + x_3}$$. First we need to do the partial derivatives:
+$$
+\\begin{align}
+fx_1 = -4x_1 - x_2 - e^{x_1 + x_2 + x_3} \\Rightarrow fx_1x_1 = -4 - e^{x_1 + x_2 + x_3}, \\quad fx_1x_2 = -1 - e^{x_1 + x_2 + x_3}, \\quad f x_1x_3 = -e^{x_1 + x_2 + x_3} \\newline 
+f_{x_2} = -2x_2 - x_1 - e^{x_1 + x_2 + x_3} \\newline 
+f_{x_3} = -3 -e^{x_1 + x_2 + x_3} \\newline 
+ADD PARTIALS
+\\end{align}
+$$
+So then our Hessian is:
+$$
+f''(x_1, x_2, x_3 ) = \\begin{vmatrix}
+-4 - e^{x_1 + x_2 + x_3} & -1 -  e^{x_1 + x_2 + x_3} & - e^{x_1 + x_2 + x_3} \\newline 
+-1 - e^{x_1 + x_2 + x_3} & -2 - e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} \\newline 
+- e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} 
+\\end{vmatrix}
+$$
+We only have to check the leading principal minors because the signs match what we want. It is strictly concave. If however, one of them were 0, we would have to check the non-leading minors. 
+`}</Katex>
+
+We can also relate convexity and concavity with the definiteness of the Hessian! 
+
+In terms of the definiteness of the Hessian Matrix:
+1. Positive definiteness implies strict convexity 
+2. Positive semidefinite if and only if convexity 
+3. negative definite implies strict concavity 
+4. negative semidefinite if and only if concavity 
+
+
+Note that this must be satisfied for all x, at all points. 
+
+### Composition of functions 
+We can look at convexity and concavity during linear combination as well as the properties are conserved. 
+<Katex>{`
+If $$f_1, \\dots , f_m$$ are functions defined on a convex set $$S \\in \\mathbb{R^n}$$, then:
+1. if $$f_1, \\dots f_m$$ concave and constansts $$a_1 \\geq 0, \\dots a_m \\geq 0 \\Rightarrow a_1 f_1 + \\dots + a_m f_m concave $$
+2. if $$f_1, \\dots f_m$$ convex and constansts $$a_1 \\geq 0, \\dots a_m \\geq 0 \\Rightarrow a_1 f_1 + \\dots + a_m f_m convex $$
+`}</Katex>
+
+Counterexample to just looking at the properties of both of function:
+<Katex>{`
+$$f(x) = -x^2, \\quad g(x) = -e^x$$ are strictly concave. However, their composition function: $$g \\circ f(x) = g(f(x)) = -e^{-x^2}$$ is actually convex in an interval around the original. Instead, we need to require the exterior function to be increasing and only then is is certaint that the composite function concave.  In general:
+Suppose that $$f(x)$$ is defined $$ \\forall \\, \\mathbf{x}$$ in a convex set $$S \\in \\mathbb{R}^n$$ and that $$F$$ is defined over an interval in $$\\mathbb{R}$$ that contains $$f(\\mathbf{x}) \\, \\forall \\mathbf{x} \\in \\, S$$, then: 
+FIX THE MIXTURE OF CAPITAL F AND G 
+1. $$f(\\mathbf{x})$$ concave, $$F(u) concave and increasing \\Rightarrow U(\\mathbf{x}) = F(f(\\mathbf{x}))$$ concave 
+2. $$f(x)$$ convex, g(u) convex and increasing $$\\Rightarrow U(x) = g(f(x))$$ convex 
+3. $$f(x) $$ concave, $$g(u)$$ convex and decreasing $$\\Rightarrow U(x) = g(f(x))$$ convex  
+4. $$ f(x) $$ convex, $$g(u)$$ concave and decreasing $$\\Rightarrow U(x) = g(f(x))$$ concave.  
+`}</Katex>
+
+If they are both convex or concave, then as long as g is increasing, they remain the same. If the functions are not of the same type, then the composition is of the opposite type of *f* if the other function *g* is decreasing. 
+
+### Function on C 
+
+** Theorem 
+<Katex>{`
+If $$f: S \\subseteq \\mathbb{R}^n \\rightarrow \\mathbb{R}$$ is a $$C^1$$ function on a convex set, then f is (strictly) concave if $$f(x) - f(y)$$ is (strictly) less than the gradient of f at the point y dotted with the difference.  ($$\\Delta_f(y) \\cdot (x-y)$$)
+`}</Katex>
+
+### Jensen's Inequality
+<Katex>{`
+Suppose A LOT OF THING
+`}</Katex>
+
+
+#### Discrete version
+<Katex>{`
+A function $$f: S \\subseteq \\mathbb{R}^n \\rightarrow \\mathbb{R}$$ on a convex set *S* is concave $$\\iff$$
+$$
+f(\\lambda_1 \\mathbf{x} + \\dots + \\lambda_m \\mathbf{x}_m) \\geq \\lambda_1 f(\\mathbf{x}_1) + \\dots + \\lambda_m f(\\mathbf{x}_m) 
+$$
+holds for all $$\\mathbf{x}_1 , \\dots , \\mathbf{m}_m$$ in $$S$$ for all $$\\lambda_1 \\geq , \\dots , \\lambda_m \\geq $$ with $$ \\lambda_1 + \\dots + \\lambda_m = 1 $$
+`}</Katex>
+This is a much much stronger inequality than just concavity. When m = 2, this is concavity but if you know that, you have the much stronger inequality. 
+
+
+#### Continuous Version 
+
+
+### Supergradients
+<Katex>{`
+Let $$f$$ be concave on a convex set $$S \\subseteq \\mathbb{R}^n$$, and let $$x_0$$ be an inerior fixed point in $$S$$. Then $$\\exists  \\, p \\in \\mathbb{R}^n$$ such that:
+$$
+f(\\mathbf{x}) - f(\\mathbf{x}_0) \\leq \\mathbf{p \\cdot (x - x_0)} \\quad \\forall \\, \\mathbf{x} \\in S
+$$
+If the function was differentiable then p would be the gradient of the function. This however expands that concept to non-differnetiable functions. 
+`}</Katex>
+
+
+
+<Katex>{`
+a
+`}</Katex>
