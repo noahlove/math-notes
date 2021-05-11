@@ -12,23 +12,235 @@ Definition:
 
 ## Matrices
 
+
+<Katex>{`
+A $$m \\times n$$ matrix is a rectuangular array with m rows and n columns:
+$$
+    \\mathbf{A} = (a_{ij})_{m \\times n} = \\begin{pmatrix}
+        a_{11} & a_{12} & \\dots & a_{1n} \\newline
+        a_{21} & a_{22} & \\dots & a_{2n} \\newline
+        \\vdots & \\vdots &  \\ddots & \\vdots \\newline
+        a_{m1} & a_{m2} & \\dots & a_{mn} 
+    \\end{pmatrix}
+$$
+Above we have $$m \\times n$$ individual entries, each of which can be identified by $$a_{ij}$$ where i is the row and j is the column it is located in.
+`}</Katex>
+
+
+### Property of Matrices
+
 <Katex>{`
 $$
 \\begin{align}
    (AB)C &= A(BC) \\newline
-   A(B+ C) &= AB + AC \\quad \\text{left distributive law} \\newline
-   (A + B)C &= AC + BC \\quad \\text{right distributive law} \\newline 
-   AB \\ne BA 
+   A(B+ C) &= AB + AC  & \\text{left distributive law} \\newline
+   (A + B)C &= AC + BC  & \\text{right distributive law} \\newline 
+   AB & \\neq BA   & \\text{except in special cases} \\newline 
+   AB = 0 & \\quad & \\text{does not imply that } A or B  is 0 \\newline
+   AB = AC & \\quad \\text{and} \\quad  A \\neq 0 & \\text{do not imply that } B = C
 \\end{align}
+$$
+`}</Katex>
+
+### Identiy matrix
+
+<Katex>{`
+The identity matrix of order $$n $$ is denoted by $$\\mathbf{I_n}$$ or often just $$\\mathbf{I}$$ and it is the $$ n \\times n$$ matrix having ones along the main diagonal and zeros elsewhere:
+$$
+\\mathbf{I}_n = \\begin{pmatrix} 
+1 & 0 & \\dots & 0 \\newline
+0 & 1 & \\dots & 0 \\newline 
+\\vdots & \\vdots & \\ddots & \\vdots \\newline 
+0 & 0 & \\dots & 1 
+\\end{pmatrix}
+$$
+`}</Katex>
+
+### Transpose 
+<Katex>{`
+The transpose of a matrix is commonly written: $$\\mathbf{A} '$$ or $$\\mathbf{A}^T$$. For ease of viewing on a browser, these notes will use: $$\\mathbf{A}^T$$
+If $$\\mathbf{A} = (a_{ij})_{m \\times n}$$ is a matrix, then the transpose is: 
+$$
+\\mathbf{A}^T = (A_{ji})_{n_\\times n}
+$$
+`}</Katex>
+
+#### Properties of Tranpose:
+
+<Katex>{`
+$$
+\\begin{align}
+& (\\mathbf{A^T})^T = \\mathbf{A} \\newline
+& (\\mathbf{A} + \\mathbf{B})^T = \\mathbf{A}^T + \\mathbf{B}^T  \\newline 
+& (\\alpha \\mathbf{A})^T = \\alpha \\mathbf{A}^T \\newline 
+& (\\mathbf{AB})^T = \\mathbf{B}^T \\mathbf{A}^T
+\\end{align}
+$$
+`}</Katex>
+
+### Symmetric Matrices: 
+<Katex>{`
+A square matrix is called symmetric if 
+$$ \\mathbf{A} = \\mathbf{A}^T $$
+`}</Katex>
+
+## Determinants 
+
+<Katex>{`
+$$ 
+| \\mathbf{A} | = \\begin{vmatrix}
+a_{11} & a_{12} \\newline 
+a_{21} & a_{22} 
+\\end{vmatrix} = a_{11} a_{22} - a_{21} a_{12} 
+$$
+`}</Katex>
+
+Find A WAY TO WRITE THE COOL DETERMINANT TRICK IN HERE SOME HOW 
+To generalize the determinant, the easiest way is usually looking at the cofactors of the matrix and recursively calculating the determinant. Computers can be incredibly quick at this. 
+
+### Manipulating determinants 
+The following rules are for Manipulating determinants:
+  
+1. If two rows or columns of **A** are interchanged, the determinant changes sign but its absolute value remains unchanged.
+2. If all elements in a single row or column of **A** are multiplied by a skalar, the determinant is multiplied by the same scalar.
+3. If two of the rows or columns of **A** are porportional, then the determinant is 0. 
+4. The value of the determinant remains unchanged if a multiple of one row (or one column) is added to another row or column 
+
+### Properties of determinants 
+<Katex>{`
+$$ 
+\\begin{align}
+& | \\mathbf{A}^T  | = | \\mathbf{A} | \\newline 
+& | \\mathbf{AB} | = | \\mathbf{A} | \\cdot |\\mathbf{B} | \\newline 
+& | \\mathbf{A + B } | \\neq |\\mathbf{A}| + |\\mathbf{B}| \\quad \\text{usually} 
+\\end{align}
+$$
+`}</Katex>
+
+## Inverse 
+
+<Katex>{`
+The inverse $$\\mathbf{A}^{-1}$$ of an $$n \\times n$$ matrix is defined such that is satisfies the following:
+$$ 
+\\mathbf{B = A}^{-1} \\iff \\mathbf{AB} = \\mathbf{I}_n \\iff \\mathbf{BA} = \\mathbf{I}_n 
+$$
+From this, it follow that : 
+$$
+\\mathbf{A}^{-1} \\quad \\text{exists} \\iff | \\mathbf{A} | \\neq 0 
+`}</Katex>
+
+**ADD FORMULA 28 NOT SURE WHAT IT MEANS**
+
+In particular, memorizing the formula for a 2 x 2 matrix can be very helpful: 
+
+<Katex>{`
+$$ 
+\\begin{pmatrix}
+a & b \\newline
+c & d 
+\\end{pmatrix}^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} 
+d & -b \\newline 
+-c & a 
+\\end{pmatrix} \\quad \\text{if} \\quad \\begin{vmatrix} 
+a & b \\newline 
+c & d 
+\\end{vmatrix} = ad - bc \\neq 0 
+$$
+`}</Katex>
+
+### Properties of Inverse  
+<Katex>{`
+$$ 
+\\begin{align}
+& (\\mathbf{A}^{-1})^{-1} = \\mathbf{A} \\newline 
+& (\\mathbf{AB}^{-1}) = \\mathbf{B^{-1}A^{-1}} \\newline 
+& (\\mathbf{A}^T)^{-1} = (\\mathbf{A}^{-1})^T \\newline 
+& (k \\mathbf{A})^{-1} = k^{-1} \\mathbf{A}^{-1} 
+\\end{align}
+$$
+`}</Katex>
+
+## Cramer's Rule 
+Consider a system of n equations with n unknowns. The system has a unique solution if and only if the determinant is non zero. That is:
+<Katex>{`
+$$ 
+| \\mathbf{A} | = |(a_{ij})_{n \\times n} | \\neq 0 
+$$
+and the unique solution is then: 
+$$
+x_j | \\mathbf{A}_j / |\\mathbf{A}|, \\quad j = 1,2, \\dots , n 
+$$ 
+where $$| \\mathbf{A_j}| $$ denotes the determinant of $$ \\mathbf{A} $$ with is jth column replaced by the column with components $$b_1, b_2, \\dots , b_n$$ 
+`}</Katex>
+
+### Homogenous system 
+A homogenous is a system of equations that can be written in matrix form as:
+<Katex>{`
+$$ 
+\\mathbf{Ax = 0}
+$$
+A homogenous system will always have the trivial solution where all $$x_i$$ = 0. From this, the square matrix **A** in $$Ax = 0$$ has non trivial solutions $$\\iff | \\mathbf{A} | = 0 $$
+`}</Katex>
+
+
+## Vectors 
+
+### Properties of vectors 
+
+<Katex>{`
+$$ 
+\\begin{align}
+& \\mathbf{a \\cdot b} = \\mathbf{b \\cdot a } \\newline 
+& \\mathbf{a} \\cdot  \\mathbf{(b + c)} = \\mathbf{a} \\cdot \\mathbf{b + a} \\cdot c \\newline 
+& ( \\alpha \\mathbf{a}) \\cdot \\mathbf{b = a \\cdot }(\\alpha \\mathbf{b}) = \\alpha (\\mathbf{a \\cdot b})
+\\end{align}
+$$
+`}</Katex>
+
+
+### Euclidean norm or length of a vector is: 
+<Katex>{`
+$$ 
+|| \\mathbf{a} ||  = \\sqrt{\\mathbf{a \\cdot a }} = \\sqrt{a_1^2 + a_2^2 + \\dots + a_n^2}
+$$
+`}</Katex>
+
+<Katex>{`
+Note that $$|| \\alpha \\mathbf{a} || = | \\alpha | \\cdot  || \\mathbf{a} || $$ for all scalars and vectors. 
+`}</Katex>
+
+### Important inequalities
+
+#### Cauchy-Schwarz inequality 
+The cauchy-schwarz inequality states that for all vectors of an inner product space it is true that:
+<Katex>{`
+$$ 
+|\\mathbf{a \\cdot b} | \\leq \\mathbf{||a || \\cdot ||b||}
+$$
+`}</Katex>
+
+#### Triangle Inequality for vector norms 
+In simple geometric terms, this shows that for any triangle, the sum of the lengths of any two sides must be greater than or equal to the remaining side. 
+<Katex>{`
+$$ 
+||\\mathbf{a + b }|| \\leq \\mathbf{||a|| + ||b|| }
+$$
+`}</Katex>
+
+
+
+<Katex>{`
+$$ 
+placeholder 
 $$
 `}</Katex>
 
 
 
 
-### Property of Matrices
 
 
+## Previous 
 
 The rank of A is the maximum number of linearly independent column vectors of A. The rank of the zero matrix is 0. 
 
