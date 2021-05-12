@@ -31,7 +31,10 @@ A more mathematical way of stating this would be:
 <Katex>{`
 **Definition**: Let $$S \\subseteq  \\mathbb{R}^n$$ be convex, then $$f : S \\rightarrow \\mathbb{R}$$ is called concave if 
 $$
-f( \\lambda x + (1 - \\lambda)y) \\geq \\lambda f(x) + (1 - \\lambda) f(y) \\quad \\forall \\, \\mathbf{x,y} \\in S, \\forall \\lambda \\in [0,1] 
+f( \\lambda x + (1 - \\lambda)y) \\geq \\lambda f(x) + (1 - \\lambda) f(y) 
+$$
+$$
+\\quad \\forall \\, \\mathbf{x,y} \\in S, \\forall \\lambda \\in [0,1] 
 $$
 It is convex if the reverse inequality holds. It is called **strictly** convex or concave if the respective inequality is strict, and not equal. 
 `}</Katex>
@@ -106,21 +109,24 @@ INSERT ANALYSIS OF WHAT TO CHECK? Check -2, -2 and determinant of full, which is
 `}</Katex>
 
 <Katex>{`
-Let us also try another example in three variables: $$f(x_1, x_2, x_3) = 100 - 2x_1^2 - x_2^2 - 3x_3 - x_1 x_2 - e^{x_1 + x_2 + x_3}$$. First we need to do the partial derivatives:
+Let us also try another example in three variables: $$100 - 2x_1^2 - x_2^2 - 3x_3 - x_1 x_2 - e^{x_1 + x_2 + x_3}$$. First we need to do the partial derivatives:
 $$
 \\begin{align}
-fx_1 = -4x_1 - x_2 - e^{x_1 + x_2 + x_3} \\Rightarrow fx_1x_1 = -4 - e^{x_1 + x_2 + x_3}, \\quad fx_1x_2 = -1 - e^{x_1 + x_2 + x_3}, \\quad f x_1x_3 = -e^{x_1 + x_2 + x_3} \\newline 
+fx_1 = -4x_1 - x_2 - e^{x_1 + x_2 + x_3} \\newline 
+\\Rightarrow fx_1x_1 = -4 - e^{x_1 + x_2 + x_3} \\newline 
+fx_1x_2 = -1 - e^{x_1 + x_2 + x_3}, \\newline 
+f x_1x_3 = -e^{x_1 + x_2 + x_3} \\newline 
 f_{x_2} = -2x_2 - x_1 - e^{x_1 + x_2 + x_3} \\newline 
 f_{x_3} = -3 -e^{x_1 + x_2 + x_3} \\newline 
 ADD PARTIALS
 \\end{align}
 $$
-So then our Hessian is:
+So then our Hessian is: $$s = e^{x_1 + x_2 + x_3}$$
 $$
 f''(x_1, x_2, x_3 ) = \\begin{vmatrix}
--4 - e^{x_1 + x_2 + x_3} & -1 -  e^{x_1 + x_2 + x_3} & - e^{x_1 + x_2 + x_3} \\newline 
--1 - e^{x_1 + x_2 + x_3} & -2 - e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} \\newline 
-- e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} & -e^{x_1 + x_2 + x_3} 
+-4 - s & -1 -  s & - s \\newline 
+-1 - s & -2 - s & -s \\newline 
+- s & -s & -s
 \\end{vmatrix}
 $$
 We only have to check the leading principal minors because the signs match what we want. It is strictly concave. If however, one of them were 0, we would have to check the non-leading minors. 

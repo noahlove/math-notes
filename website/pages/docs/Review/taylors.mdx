@@ -1,0 +1,49 @@
+---
+title: Taylor's Formula
+section: Review
+order: 3
+---
+
+import Katex from "../../../components/Katex";
+
+# Review of Linear Algebra
+
+Definition:
+
+## Matrices
+
+
+<Katex>{`
+If $$f: \\mathbb{R} \\rightarrow \\mathbb{R} $$ is sufficiently differentiable (all the necessary derivatives of the corresponding order), then 
+$$ 
+f(x) = f(x_0) + \\frac{f'(x_0)}{1!} (x - a) + \\dots +  \\frac{f^{(n)} (x_0)}{n!} (x - x_0)^n + \\frac{f^{n+1}(a)}{(n+1)!} (x - x_0)^{n+1}
+$$
+for some $$a$$ between $$(x, x_0)$$. The larger n, the better the approximation. 
+`}</Katex>
+
+
+### General Case:
+<Katex>{`
+$$f(x_1, x_2, \\dots , x_n): \\mathbb{R^n} \\rightarrow \\mathbb{R}$$ and $$x^\\circ $$ fixed. Consider:
+$$
+g(t) = f(x^\\circ + tx)
+$$
+Then the derivatives are:
+$$
+\\begin{align}
+g'(t) = \\sum_{i = 1}^{n} f'_{x_i}(x^\\circ + tx ) x_i  \\newline 
+g''(t) = \\sum_{i = 1}^n (\\sum_{j = 1}^n f''_{x_i x_j} (x^\\circ + tx) x_j) x_i
+\\end{align}
+$$
+From here, we can apply taylor's formula at $$g(1)$$. 
+$$
+g(1) = g(0) + g'(0) + g''(a)/2 
+$$
+for some $$a$$. Plugging in, we get the following:
+$$
+f(x^\\circ + x) = f(x^\\circ ) + \\sum_{i = 1}^n f_{x_i}' (x^\\circ) x_i + \\newline 
+\\sum_{i = 1}^n \\sum_{j = 1}^n ((1/2) f_{x_i x_j}'' (x^\\circ + ax) x_i x_j)
+$$
+for some $$a \\in (0,1)$$
+`}</Katex>
+
